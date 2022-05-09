@@ -1,8 +1,6 @@
 const nome = 'Andrea'
 const cognome = 'Trussardi'
 
-function giveName(name, surname) {
-    return `My name is ${name} ${surname}`
-}
+let giveName = (name, surname) => `My name is ${name} ${surname}`
 
 console.log( `${ giveName(nome, cognome) }` )
