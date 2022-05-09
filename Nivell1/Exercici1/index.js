@@ -1,4 +1,4 @@
-function getName(nombre) {
+function giveName(nombre) {
     console.log(`My name is ${nombre}`)
 }
-getName('Andrea')
+giveName('Andrea')
