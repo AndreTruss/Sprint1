@@ -1,5 +1,7 @@
 # Sprint1
+# Entrega 1.1: Functions & Template Literals
 Descripció
+
 Treballem amb funcions i template literals, elements fonamentals en la programació amb javascript ;)
 Utilitza l'intèrpret de node en tots els casos.
 
