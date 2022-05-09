@@ -1,6 +1,6 @@
-const nome = 'Andrea'
-const cognome = 'Trussardi'
+const giveName = () => {
+    const name = 'Andrea'
+    return name
+}
 
-let giveName = (name, surname) => `My name is ${name} ${surname}`
-
-console.log( `${ giveName(nome, cognome) }` )
+console.log( `My name is ${ giveName() }` )
