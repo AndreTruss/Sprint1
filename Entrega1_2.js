@@ -27,15 +27,20 @@ soyYo.dirNom()
 
 // Nivell3 Exercici1  Escriu una function creadora d'objectes que faci instàncies d'una classe abstracta. 
 // Invoca-la amb diferents definicions.
-function Abstract() {
-    if (this.constructor == Abstract) {
+class Abstract {
+    constructor(){
         throw new Error("You cannot create an instance of Abstract class ");          
+    }
+    info(){
+        throw new Error("Abstract Method has no implementation");
     }
 }
 
-Abstract.prototype.info = function() { return `Message is: ${this.message}` }
 
-function createObj(message) { this.message = message }
+function createObj(message) { 
+    this.message = message 
+    Abstract.prototype.info = function() { return `Message is: ${this.message}` }
+}
 
 createObj.prototype = Object.create(Abstract.prototype)
 
