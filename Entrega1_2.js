@@ -29,14 +29,16 @@ soyYo.dirNom()
 // Invoca-la amb diferents definicions.
 class Abstract {
     constructor(){
-        throw new Error("You cannot create an instance of Abstract class ");          
+        if (this.constructor == Abstract) {
+        throw new Error("You cannot create an instance of Abstract class ")
+        }          
     }
     info(){
-        throw new Error("Abstract Method has no implementation");
+        throw new Error("Abstract Method has no implementation")
     }
 }
 
-
+// Solució amb una funció
 function createObj(message) { 
     this.message = message 
     Abstract.prototype.info = function() { return `Message is: ${this.message}` }
@@ -48,4 +50,14 @@ const object1 = new createObj('Everything you want')
 
 console.log( object1.message )
 console.log( object1.info() ) 
-console.log( object1 ) 
+console.log( object1 )
+
+/* // Altra solució pero amb una subclasses
+class Obj extends Abstract {
+    info(message) {
+        console.log(`Message is: ${message}`)
+    }
+}
+let myObject = new Obj()
+myObject.info('Everything you want')
+console.log(myObject) */
