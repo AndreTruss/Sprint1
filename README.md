@@ -1,4 +1,4 @@
-# Sprint1
+# Sprint1_Entrega1_1Functions
 # Entrega 1.1: Functions & Template Literals
 Descripció
 
