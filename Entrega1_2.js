@@ -34,19 +34,22 @@ class Abstract {
       }
       
       info() {
-          throw new Error(" Added abstract Method has no implementation");
+          return 'me llamo ' + this.name
       }
   }
 
-class Object extends Abstract {
+/* class Obje extends Abstract {
     info(text) {
         console.log(`${text}`);
     }
+} */
+
+function CreateOject (name) {
+    this.name = name
 }
 
-function createObj(message) {
-  const obj = new Object()
-  obj.info(message) 
-}
+CreateOject.prototype = Object.create(Abstract.prototype)
 
-createObj('Hola Mundo')
+const obj = new CreateOject('Andrea')
+
+console.log(obj.info())
