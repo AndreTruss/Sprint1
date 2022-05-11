@@ -52,6 +52,8 @@ const object2 = new createObj('Sum of 1+1 is ...')
 console.log( object1.message )
 console.log( object1.info() ) 
 console.log( object2.message )
+console.log( object1 instanceof createObj);
+console.log( object1 instanceof Abstract);
 
 /* // Altra solució pero amb una subclasses
 class Obj extends Abstract {

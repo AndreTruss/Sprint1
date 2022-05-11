@@ -70,8 +70,9 @@ getEmployees()
 
 // Nivell2 Exercici2
 
-function getSalary(worker) { 
-	const index = employees.findIndex(worker.id) 
-	console.log(salaries[index].salary) 
+const getSalary = (worker) => { 
+	const index = employees.findIndex(indice => indice == worker) 
+	console.log(`Salary of employee ${worker.name} is ${salaries[index].salary}`) 
 } 
-getSalary(employees[1])
+getSalary(employees[0])
+getSalary(employees[2])
