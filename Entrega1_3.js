@@ -17,11 +17,11 @@ myPromise().then(successCallback).catch(failureCallback)
 
 // Nivell1 Exercici2
 
-const messageFunction = ( message ) => console.log( message )
+const giveMessage = ( message ) => console.log( message )
 
 const myFunction = (parameter, callback) => callback(parameter) 
 
-myFunction('Hola Andrea', messageFunction)
+myFunction('Hola Andrea', giveMessage)
 
 //myFunction(1)
 //myFunction(2)
