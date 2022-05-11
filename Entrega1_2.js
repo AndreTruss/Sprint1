@@ -47,11 +47,18 @@ function createObj(message) {
 createObj.prototype = Object.create(Abstract.prototype)
 
 const object1 = new createObj('Everything you want')
+const object2 = new createObj('Sum of 1+1 is ...')
 
 console.log( object1.message )
 console.log( object1.info() ) 
+<<<<<<< HEAD
 console.log( object1 )
 createObj('Everything you want')
+=======
+console.log( object2.message )
+console.log( object1 instanceof createObj);
+console.log( object1 instanceof Abstract);
+>>>>>>> 1214324f8f4978fd2eff7f8aff56d032deecd934
 
 /* // Altra solució pero amb una subclasses
 class Obj extends Abstract {

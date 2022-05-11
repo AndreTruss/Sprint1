@@ -1,29 +1,87 @@
 // Nivell1 Exercici1
 
-let myPromise = new Promise((resolve, reject) => {
+let myPromise = () => { return new Promise( (resolve, reject) => {
 	setTimeout(function() {
-		resolve('¡Éxito!');
+		resolve('¡Right!');
 	}, 250);
 	setTimeout(function() {
-		reject('¡Fail!');
-	}, 280);
-});
-myPromise
+		reject('¡Wrong!');
+	}, 200);
+}) 
+}
+
+myPromise () 
 	.then((value) => {
-		console.log('¡Sí! ' + value);
+		console.log('¡Yes! ' + value);
 	})
 	.catch((reason) => {
 		console.error('¡No! ' + reason);
 	});
 
+
 // Nivell1 Exercici2
 
+<<<<<<< HEAD
 let callback = (element) => {
     element > 1 ? console.log('¡Éxito!') : console.error('¡Fail!')
+=======
+function callback(element) {
+	element > 1 ? console.log('¡Success!') : console.error('¡Fail!');
+>>>>>>> 1214324f8f4978fd2eff7f8aff56d032deecd934
 }
 
 let myFunction = (parameter) => { callback(parameter) }
 
+<<<<<<< HEAD
 myFunction(2)
 myFunction(0)
     
+=======
+myFunction(1)
+myFunction(2)
+    
+
+// Nivell2 Exercici1
+
+let employees = [{
+    id: 1,
+    name: 'Linux Torvalds'
+}, {
+    id: 2,
+    name: 'Bill Gates'
+},{
+    id: 3,
+    name: 'Jeff Bezos'
+}];
+ 
+let salaries = [{
+    id: 1,
+    salary: 4000
+}, {
+    id: 2,
+    salary: 1000
+}, {
+    id: 3,
+    salary: 2000
+}];
+
+const getEmployees = () => { return new Promise( (resolve, reject) => {
+		employees.find( worker => worker.id ? resolve('¡Success! Found employee: ' + worker.name) : reject('¡Fail!'))
+	} )
+}
+
+getEmployees(employees[0])
+	
+
+// Nivell2 Exercici2
+
+const getSalary = (worker) => { 
+	const index = employees.findIndex(indice => indice == worker) 
+	console.log(`Salary of employee ${worker.name} is ${salaries[index].salary}`) 
+} 
+getSalary(employees[0])
+getSalary(employees[2])
+
+// Nivell2 Exercici3
+
+>>>>>>> 1214324f8f4978fd2eff7f8aff56d032deecd934
