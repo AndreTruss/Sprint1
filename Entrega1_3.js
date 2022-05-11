@@ -56,17 +56,12 @@ let salaries = [{
 }];
 
 const getEmployees = () => { return new Promise( (resolve, reject) => {
-		employees.find( worker => worker.id ? resolve('¡Success!') : reject('¡Fail!'))
+		employees.find( worker => worker.id ? resolve('¡Success! Found employee: ' + worker.name) : reject('¡Fail!'))
 	} )
 }
 
-getEmployees()
-	.then((value) => {
-		console.log('¡Yes! ' + value);
-	})
-	.catch((reason) => {
-		console.error('¡No! ' + reason);
-	});
+getEmployees(employees[0])
+	
 
 // Nivell2 Exercici2
 
@@ -76,3 +71,6 @@ const getSalary = (worker) => {
 } 
 getSalary(employees[0])
 getSalary(employees[2])
+
+// Nivell2 Exercici3
+
