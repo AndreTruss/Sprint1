@@ -2,43 +2,29 @@
 
 let myPromise = () => { return new Promise( (resolve, reject) => {
 	setTimeout(function() {
-		resolve('¡Right!');
-	}, 250);
+		resolve('¡Right!')
+	}, 250)
 	setTimeout(function() {
-		reject('¡Wrong!');
-	}, 200);
+		reject('¡Wrong!')
+	}, 280)
 }) 
 }
+const successCallback = (value) =>  console.log(`¡Yes! ${value}`) 
+const failureCallback = (error) => console.error(`¡No!${error}`)
 
-myPromise () 
-	.then((value) => {
-		console.log('¡Yes! ' + value);
-	})
-	.catch((reason) => {
-		console.error('¡No! ' + reason);
-	});
+myPromise().then(successCallback).catch(failureCallback)
 
 
 // Nivell1 Exercici2
 
-<<<<<<< HEAD
-let callback = (element) => {
-    element > 1 ? console.log('¡Éxito!') : console.error('¡Fail!')
-=======
-function callback(element) {
-	element > 1 ? console.log('¡Success!') : console.error('¡Fail!');
->>>>>>> 1214324f8f4978fd2eff7f8aff56d032deecd934
+function callback( element ) {
+	element > 1 ? console.log('¡Success!') : console.error('¡Fail!')
 }
 
 let myFunction = (parameter) => { callback(parameter) }
 
-<<<<<<< HEAD
-myFunction(2)
-myFunction(0)
-    
-=======
-myFunction(1)
-myFunction(2)
+//myFunction(1)
+//myFunction(2)
     
 
 // Nivell2 Exercici1
@@ -65,23 +51,30 @@ let salaries = [{
     salary: 2000
 }];
 
-const getEmployees = () => { return new Promise( (resolve, reject) => {
-		employees.find( worker => worker.id ? resolve('¡Success! Found employee: ' + worker.name) : reject('¡Fail!'))
-	} )
-}
+const getEmployees = ( (worker) => { 
+	let ind = employees.findIndex( (ele) => ele.id == worker.id )
+	//console.log(ind) 
+	return new Promise( (myresolve, myreject) => {
+	ind !== -1
+	? myresolve(console.log(`¡Success! Found employee: ${worker.name}`) )
+	: myreject('¡Failure!')
+} ) 
+})
+/* getEmployees()
+.then(successCallback)
+.catch(failureCallback) */
 
 getEmployees(employees[0])
 	
 
 // Nivell2 Exercici2
 
-const getSalary = (worker) => { 
+/* const getSalary = (worker) => { 
 	const index = employees.findIndex(indice => indice == worker) 
 	console.log(`Salary of employee ${worker.name} is ${salaries[index].salary}`) 
 } 
 getSalary(employees[0])
-getSalary(employees[2])
+getSalary(employees[2]) */
 
 // Nivell2 Exercici3
 
->>>>>>> 1214324f8f4978fd2eff7f8aff56d032deecd934
