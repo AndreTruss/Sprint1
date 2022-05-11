@@ -29,6 +29,4 @@ for ( let i = 0; i < 10; i++ ) arrayFunctions.push( countNumber )
 for (let funct of arrayFunctions) funct() 
 
 //Nivell3 Exercici2
-const giveName3 = (name) => console.log (`My name is ${name}`)
-
-const myfunction = ( () => giveName3('Andrea') ) ()
+const giveName3 = ( (name) => console.log (`My name is ${name}`) ) ('Andrea')
