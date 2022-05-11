@@ -19,11 +19,11 @@ myPromise
 // Nivell1 Exercici2
 
 let callback = (element) => {
-    element === 1 ? console.log('¡Sí! ¡Éxito!') : console.error('¡No! ¡Fail!')
+    element > 1 ? console.log('¡Éxito!') : console.error('¡Fail!')
 }
 
 let myFunction = (parameter) => { callback(parameter) }
 
-myFunction(1)
+myFunction(2)
 myFunction(0)
     

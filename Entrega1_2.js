@@ -51,6 +51,7 @@ const object1 = new createObj('Everything you want')
 console.log( object1.message )
 console.log( object1.info() ) 
 console.log( object1 )
+createObj('Everything you want')
 
 /* // Altra solució pero amb una subclasses
 class Obj extends Abstract {
