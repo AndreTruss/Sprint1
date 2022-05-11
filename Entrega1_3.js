@@ -17,11 +17,11 @@ myPromise().then(successCallback).catch(failureCallback)
 
 // Nivell1 Exercici2
 
-function callback( element ) {
-	element > 1 ? console.log('¡Success!') : console.error('¡Fail!')
-}
+const saludar = ( nombre ) => console.log(`¡Success! ${nombre}`)
 
-let myFunction = (parameter) => { callback(parameter) }
+const myFunction = (parameter, callback) => { callback(parameter) }
+
+myFunction('Andrea', saludar)
 
 //myFunction(1)
 //myFunction(2)
