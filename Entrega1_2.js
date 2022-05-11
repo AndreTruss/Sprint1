@@ -38,7 +38,6 @@ class Abstract {
     }
 }
 
-// Solució amb una funció
 function createObj(message) { 
     this.message = message 
     Abstract.prototype.info = function() { return `Message is: ${this.message}` }
@@ -54,13 +53,3 @@ console.log( object1.info() )
 console.log( object2.message )
 console.log( object1 instanceof createObj);
 console.log( object1 instanceof Abstract);
-
-/* // Altra solució pero amb una subclasses
-class Obj extends Abstract {
-    info(message) {
-        console.log(`Message is: ${message}`)
-    }
-}
-let myObject = new Obj()
-myObject.info('Everything you want')
-console.log(myObject) */
