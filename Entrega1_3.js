@@ -1,18 +1,16 @@
 // Nivell1 Exercici1
 
-let myPromise = () => { return new Promise( (resolve, reject) => {
-	setTimeout(function() {
-		resolve('¡Right!')
-	}, 250)
-	setTimeout(function() {
-		reject('¡Wrong!')
-	}, 280)
+/* /* let myPromise = () => { return new Promise( (resolve, reject) => {
+	setTimeout( () => resolve('¡Right!'), 250)
+	setTimeout( () => reject('¡Wrong!'), 280)
 }) 
-}
+} */
 const successCallback = (value) =>  console.log(`¡Yes! ${value}`) 
-const failureCallback = (error) => console.error(`¡No!${error}`)
+const failureCallback = (err) => console.log(err.message)
 
-myPromise().then(successCallback).catch(failureCallback)
+/* myPromise()
+.then(successCallback)
+.catch(failureCallback) */ 
 
 
 // Nivell1 Exercici2
@@ -23,8 +21,6 @@ const myFunction = (parameter, callback) => callback(parameter)
 
 myFunction('Hola Andrea', giveMessage)
 
-//myFunction(1)
-//myFunction(2)
     
 
 // Nivell2 Exercici1
@@ -50,21 +46,23 @@ let salaries = [{
     id: 3,
     salary: 2000
 }];
-
-const getEmployees = ( (worker) => { 
-	let ind = employees.findIndex( (ele) => ele.id == worker.id )
-	//console.log(ind) 
-	return new Promise( (myresolve, myreject) => {
-	ind !== -1
-	? myresolve(console.log(`¡Success! Found employee: ${worker.name}`) )
-	: myreject('¡Failure!')
+let i = 2
+const getEmployees = () => new Promise( (resolve, reject) => { 
+	let ind = employees.find( element => element.id == employees[i].id)
+	console.log(ind) 
+	 
+	if ( ind ){
+		const mess = (`¡Success! Found employee: ${employees[i].name}`)
+		resolve(mess )
+	}
+	else{ reject(new Error('¡Failure!') )}
 } ) 
-})
-/* getEmployees()
-.then(successCallback)
-.catch(failureCallback) */
 
-getEmployees(employees[0])
+getEmployees()
+.then(successCallback)
+.catch(failureCallback)
+
+//getEmployees(2)
 	
 
 // Nivell2 Exercici2
