@@ -47,32 +47,34 @@ let salaries = [{
     salary: 2000
 }];
 
-const getEmployees = (empId) => new Promise( (resolve, reject) => { 
+/* const getEmployees = empId => new Promise( (resolve, reject) => { 
 	let worker = employees.find( element => element.id == empId)
 	console.log(worker) 
 	 
-	if ( worker ){
-		const message = (`¡Success! Found employee: ${worker.name}`)
-		resolve(message)
-	}
-	else{ reject(new Error('¡Failure!') )}
-} ) 
+	worker 
+	? resolve(`¡Success! Found employee: ${worker.name}`)
+	: reject(new Error('¡Failure!') )}
+) 
 
 getEmployees(2)
 .then(successCallback)
-.catch(failureCallback)
-
-//getEmployees(2)
+.catch(failureCallback) */
 	
 
 // Nivell2 Exercici2
 
-/* const getSalary = (worker) => { 
-	const index = employees.findIndex(indice => indice == worker) 
-	console.log(`Salary of employee ${worker.name} is ${salaries[index].salary}`) 
-} 
-getSalary(employees[0])
-getSalary(employees[2]) */
+const getSalary = (empObj) => new Promise( (resolve, reject) => { 
+	let index = employees.findIndex( indice => indice == empObj)
+	console.log(index) 
+	 
+	index !== -1 
+	? resolve(`¡Success! Found salary: ${salaries[index].salary}`)
+	: reject(new Error('¡Failure!') )}
+) 
+
+getSalary(employees[2])
+.then(successCallback)
+.catch(failureCallback)
 
 // Nivell2 Exercici3
 
