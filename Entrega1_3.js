@@ -46,19 +46,19 @@ let salaries = [{
     id: 3,
     salary: 2000
 }];
-let i = 2
-const getEmployees = () => new Promise( (resolve, reject) => { 
-	let ind = employees.find( element => element.id == employees[i].id)
-	console.log(ind) 
+
+const getEmployees = (empId) => new Promise( (resolve, reject) => { 
+	let worker = employees.find( element => element.id == empId)
+	console.log(worker) 
 	 
-	if ( ind ){
-		const mess = (`¡Success! Found employee: ${employees[i].name}`)
-		resolve(mess )
+	if ( worker ){
+		const message = (`¡Success! Found employee: ${worker.name}`)
+		resolve(message)
 	}
 	else{ reject(new Error('¡Failure!') )}
 } ) 
 
-getEmployees()
+getEmployees(2)
 .then(successCallback)
 .catch(failureCallback)
 
