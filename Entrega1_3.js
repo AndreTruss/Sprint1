@@ -47,28 +47,28 @@ let salaries = [{
     salary: 2000
 }];
 
-/* const getEmployees = empId => new Promise( (resolve, reject) => { 
+const getEmployees = empId => new Promise( (resolve, reject) => { 
 	let worker = employees.find( element => element.id == empId)
-	console.log(worker) 
+	//console.log(worker) 
 	 
 	worker 
-	? resolve(`¡Success! Found employee: ${worker.name}`)
+	? resolve(`Found employee: ${worker.name}`)
 	: reject(new Error('¡Failure!') )}
 ) 
 
 getEmployees(2)
 .then(successCallback)
-.catch(failureCallback) */
+.catch(failureCallback)
 	
 
 // Nivell2 Exercici2
 
 const getSalary = (empObj) => new Promise( (resolve, reject) => { 
 	let index = employees.findIndex( indice => indice == empObj)
-	console.log(index) 
+	//console.log(index) 
 	 
 	index !== -1 
-	? resolve(`¡Success! Found salary: ${salaries[index].salary}`)
+	? resolve(`Found salary: ${salaries[index].salary}`)
 	: reject(new Error('¡Failure!') )}
 ) 
 
@@ -78,3 +78,28 @@ getSalary(employees[2])
 
 // Nivell2 Exercici3
 
+const getEmploy = empId => new Promise( (resolve, reject) => { 
+	let worker = employees.find( element => element.id == empId)
+	//console.log(worker) 
+	 
+	worker
+	? resolve(worker)
+    : reject(new Error('¡Failure!') )
+}) 
+
+const anidarFunction = worker => {
+    let index = employees.findIndex( indice => indice == worker)
+    const messaggio = `Employee: ${worker.name} have salary: ${salaries[index].salary}`
+    return Promise.resolve(messaggio)
+}
+getEmploy(2)
+.then(anidarFunction)
+.then(successCallback)
+.catch(failureCallback)
+
+//Nivell3 Exercici1
+
+getEmploy(5)
+.then(anidarFunction)
+.then(successCallback)
+.catch(failureCallback)
