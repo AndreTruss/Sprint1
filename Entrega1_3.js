@@ -1,16 +1,16 @@
 // Nivell1 Exercici1
 
-/* /* let myPromise = () => { return new Promise( (resolve, reject) => {
+let myPromise = () => { return new Promise( (resolve, reject) => {
 	setTimeout( () => resolve('¡Right!'), 250)
 	setTimeout( () => reject('¡Wrong!'), 280)
 }) 
-} */
+}
 const successCallback = (value) =>  console.log(`¡Yes! ${value}`) 
 const failureCallback = (err) => console.log(err.message)
 
-/* myPromise()
+myPromise()
 .then(successCallback)
-.catch(failureCallback) */ 
+.catch(failureCallback) 
 
 
 // Nivell1 Exercici2
@@ -80,8 +80,7 @@ getSalary(employees[2])
 
 const getEmploy = empId => new Promise( (resolve, reject) => { 
 	let worker = employees.find( element => element.id == empId)
-	//console.log(worker) 
-	 
+	//console.log(worker) 	 
 	worker
 	? resolve(worker)
     : reject(new Error('¡Failure!') )
