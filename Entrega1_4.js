@@ -31,7 +31,7 @@ const getEmployee = empId =>
 	
 		worker 
 			? resolve(worker)
-			: reject(new Error('¡Failure!') )
+			: reject(new Error('¡Fail exercici 1.1!') )
 	}
 ) 
 
@@ -41,11 +41,11 @@ const getSalary = employee =>
 	 
 		wage  
 			? resolve(`Employee: ${employee.name}, have salary: ${wage.salary}`)
-			: reject(new Error('¡Failure!') )
+			: reject(new Error('¡Fail ecercici 1.1!') )
 	}
 ) 
 
-async function myFunction(empId){
+async function functEmployees(empId){
     try {
         const employee = await getEmployee(empId)
         const message = await getSalary(employee)
@@ -54,28 +54,30 @@ async function myFunction(empId){
         console.log(`¡No! ${error.message}`) 
     }
 }
-myFunction(2)
+functEmployees(2)
 
 
 // Nivell1 Exercici2
 // Crea una nova funció asíncrona que cridi a una altra que retorni una Promise 
 // que efectuï la seva funció resolve() després de 2 segons de la seva invocació.
 
-let myPromise = () => { 
+let resolveIn2Seconds = boolean => { 
 	return new Promise( (resolve, reject) => {
-		setTimeout( () => resolve('¡Right! 2 seconds'), 2000)
+        boolean
+		    ? setTimeout( () => resolve('¡Right! 2 seconds'), 2000)
+            : reject( new Error('¡Fail ecercici 1.2!') )
 	}) 
 }
 
-async function newFunction(){
+async function functResolveIn2Seconds(value){
     try {
-        const message = await myPromise()
+        const message = await resolveIn2Seconds(value)
         console.log(message)
     } catch (error) {
         console.log(`¡No! ${error.message}`) 
     }
 }
-newFunction().catch( error => console.log(`¡No! ${error.message}`) )
+functResolveIn2Seconds(true)
 
 // Nivell2 Exercici1
 // Crea una funció que retorni el doble del número que se li passa 
@@ -84,31 +86,33 @@ newFunction().catch( error => console.log(`¡No! ${error.message}`) )
 // Crea una altra funció que rebi tres números i calculi la suma dels seus dobles 
 // usant la funció anterior.
 
-const dobleNumber = number => number * 2
+const dobleNumber = number => { 
+    !isNaN( number )  
+        ? return number * 2
+        :  
+    }
 
-const late2seconds = num => { 
+const dobleIn2Seconds = num => { 
 	return new Promise( (resolve, reject) => {
-        setTimeout( resolve( dobleNumber( num ) ), 2000 ) 
+        !isNaN(num) 
+            ? setTimeout( resolve( dobleNumber( num ) ), 2000 ) 
+            : reject( new Error('¡Fail ecercici 2.1!') )
     }) 
 }
 async function dobleFunction( numero ){
     try {
-        const message = await late2seconds( numero )
-        console.log(message)
+        const message = await dobleIn2Seconds( numero )
+        console.log( `Doble of number ${numero} is ${message}` )
     } catch (error) {
         console.log(`¡No! ${error.message}`) 
     }
 }
 dobleFunction( 6 )
 
-const sumDoble3Number = (number1, number2, number3) => {
-    const sumNumbers = dobleNumber(number1) + dobleNumber(number2) + dobleNumber(number3)
-    return Promise.resolve(sumNumbers)
-}
 async function sumDobleFunction( num1, num2, num3 ){
     try {
-        const message = await sumDoble3Number( num1, num2, num3 )
-        console.log(message)
+        const suma = dobleNumber( num1 ) + dobleNumber( num2 ) + dobleNumber( num3 )
+        console.log(`Sum of doble of numbers ${num1}, ${num2}, ${num3} is ${suma}`)
     } catch (error) {
         console.log(`¡No! ${error.message}`) 
     }
@@ -118,5 +122,10 @@ sumDobleFunction( 2, 3, 6 )
 // Nivell3 Exercici1
 // Força i captura tants errors com puguis dels nivells 1 i 2.
 
-myFunction(5)
+functEmployees( 5 )
+functResolveIn2Seconds( false )
+dobleFunction( 'c' )
+dobleFunction( NaN )
+sumDobleFunction( 2, 3 )
+sumDobleFunction( 0, 0, 0 )
   
