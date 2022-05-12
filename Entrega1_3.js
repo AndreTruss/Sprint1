@@ -5,8 +5,8 @@
 
 let myPromise = () => { 
 	return new Promise( (resolve, reject) => {
-		setTimeout( () => resolve('¡Right!'), 250)
-		setTimeout( () => reject( new Error( '¡Wrong!' ) ), 280)
+		resolve('¡Right!')
+		reject( new Error( '¡Wrong!' ) )
 	}) 
 }
 const successCallback = value => console.log( `¡Yes! ${value}` ) 
