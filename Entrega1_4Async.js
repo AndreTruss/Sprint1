@@ -98,7 +98,7 @@ const dobleNumber = number => {
 const dobleIn2Seconds = num => { 
 	return new Promise( (resolve, reject) => {
         !isNaN( num ) 
-            ? setTimeout( resolve( dobleNumber( num ) ), 2000 ) 
+            ? setTimeout( () => resolve( dobleNumber( num ) ), 2000 ) 
             : reject( new Error('¡Fail ecercici 2.1!') )
     }) 
 }
