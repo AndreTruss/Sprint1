@@ -1,4 +1,4 @@
-/* // Nivell1 Exercici1
+// Nivell1 Exercici1
 // Crea una funció que, en executar-la, escrigui una frase en un fitxer.
 
 const fs = require('fs/promises');
@@ -10,7 +10,7 @@ async function writeText(text) {
     console.log(err);
   }
 }
-writeText('If you read this, then exercise1 works');
+//writeText('If you read this, then exercise1 works');
 
 
 // Nivell1 Exercici2
@@ -24,30 +24,30 @@ async function readText() {
     console.log(err);
   }
 }
-readText();
+//readText();
 
 
 // Nivell1 Exercici3
 // Crea una funció que comprimeixi el fitxer del nivell 1.
 
-const { createGzip } = require('zlib');
-const { pipeline } = require('stream');
-const { createReadStream, createWriteStream } = require('fs');
-const { promisify } = require('util');
-const pipe = promisify(pipeline);
+const { createGzip } = require('zlib')
+const { pipeline } = require('stream')
+const { createReadStream, createWriteStream } = require('fs')
+const { promisify } = require('util')
+const pipe = promisify(pipeline)
 
 async function do_gzip(input, output) {
-  const gzip = createGzip();
-  const source = createReadStream(input);
-  const destination = createWriteStream(output);
-  await pipe(source, gzip, destination);
+  const gzip = createGzip()
+  const source = createReadStream(input)
+  const destination = createWriteStream(output)
+  await pipe(source, gzip, destination)
 }
 
-do_gzip('../test.txt', '../test.txt.gz')
+/* do_gzip('../test.txt', '../test.txt.gz')
   .catch((err) => {
     console.error('An error occurred:', err);
-    process.exitCode = 1;
-  }); */
+    process.exitCode = 1
+  }) */
 
 
 // Nivell2 Exercici1
@@ -81,7 +81,7 @@ async function recursiveFunction( ms ) {
 // del directori d'usuari de l'ordinador utilizant Node Child Processes.
 
 
-const { spawn } = require('child_process');
+/* const { spawn } = require('child_process');
 const os = require('os');
 
 const userDirectory = os.homedir()
@@ -97,26 +97,72 @@ ls.stderr.on('data', (data) => {
 
 ls.on('close', (code) => {
   console.log(`child process exited with code ${code}`);
-});
-
-
-/*fs.readdir(directory, function (err, files) {
-    
-    if (err) {
-        return console.log('Unable to scan directory: ' + err);
-    } 
-    
-    files.forEach(function (file) {
-        
-        console.log(file); 
-    });
 }); */
+
 
 // Nivell3 Exercici1
 // Crea una funció que creï dos fitxers codificats en hexadecimal i en base64 respectivament, 
 // a partir del fitxer del nivell 1.
+
 // Crea una funció que guardi els fitxers del punt anterior, 
 // ara encriptats amb l'algoritme aes-192-cbc, i esborri els fitxers inicials.
+
 // Crea una altra funció que desencripti i descodifiqui els fitxers de l'apartat anterior 
 // tornant a generar una còpia de l'inicial.
 // Inclou un README amb instruccions per a l'execució de cada part.
+
+const { createCipheriv, scryptSync, createDecipheriv } = require('crypto')
+const { Buffer } = require( 'buffer')
+
+const algorithm = 'aes-192-cbc'
+const password = 'Password used to generate key';
+
+const key = scryptSync(password, 'salt', 24);
+const iv = Buffer.alloc(16, 0)
+
+const cipher = createCipheriv(algorithm, key, iv)
+const cipher64 = createCipheriv(algorithm, key, iv)
+
+let encryptedHex = cipher.update('../test.txt', 'utf8', 'hex')
+encryptedHex += cipher.final('hex')
+
+let encryptedBase64 = cipher64.update('../test.txt', 'utf8', 'base64')
+encryptedBase64 += cipher64.final('base64')
+
+//let encryptedBase64 = Buffer.from('../test.txt').toString('base64') 
+console.log(encryptedHex, encryptedBase64)
+
+
+async function encryptFiles(text1, text2) {
+  try {
+    await fs.writeFile('../testHex.txt', text1)
+    await fs.writeFile('../testBase64.txt', text2)
+  } catch (err) {
+    console.log(err);
+  }
+}
+encryptFiles( encryptedHex, encryptedBase64 )
+
+
+const decipher = createDecipheriv(algorithm, key, iv)
+const decipher64 = createDecipheriv(algorithm, key, iv)
+
+let decryptedHex = decipher.update(encryptedHex, 'hex', 'utf8')
+decryptedHex += decipher.final('utf8')
+
+let decryptedBase64 = decipher64.update(encryptedBase64, 'base64', 'utf8')
+decryptedBase64 += decipher64.final('utf8')
+//let encryptedBase64 = Buffer.from('../test.txt').toString('base64') 
+console.log(decryptedHex, decryptedBase64)
+
+async function decryptFiles(text1, text2) {
+  try {
+    await fs.writeFile('../dectestHex.txt', text1)
+    await fs.writeFile('../dectestBase64.txt', text2)
+  } catch (err) {
+    console.log(err);
+  }
+}
+decryptFiles( decryptedHex, decryptedBase64 )
+
+ 
