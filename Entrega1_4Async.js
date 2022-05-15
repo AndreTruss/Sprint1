@@ -130,10 +130,10 @@ sumDobleFunctionAsync( 2, 3, 6 )
 // Nivell3 Exercici1
 // Força i captura tants errors com puguis dels nivells 1 i 2.
 
-/* functEmployees( 5 )
+functEmployees( 5 )
 resolveIn2SecFunctionAsync( false )
 dobleIn2secFunctionAsync( 'c' )
 dobleIn2secFunctionAsync( NaN )
 sumDobleFunctionAsync( 2, 3 )
-sumDobleFunctionAsync( undefined, 0, 0 ) */
+sumDobleFunctionAsync( undefined, 0, 0 )
   
