@@ -53,7 +53,7 @@ async function do_gzip(input, output) {
 // Nivell2 Exercici1
 // Crea una funció que imprimeixi recursivament un missatge per la consola amb demores d'un segon.
 
-/* let boolean = true
+let boolean = true
 
 function sleep( ms ) {
     return new Promise( ( resolve, reject ) => {
@@ -74,7 +74,7 @@ async function recursiveFunction( ms ) {
         console.log( err.message )
     }
 }
-recursiveFunction( 1000 ) */
+//recursiveFunction( 1000 )
 
 // Nivell2 Exercici2
 // Crea una funció que llisti per la consola el contingut 
@@ -124,7 +124,7 @@ let encryptedBase64 = cipher64.update('If you read this, then exercise1 works', 
 encryptedBase64 += cipher64.final('base64')
 
 //let encryptedBase64 = Buffer.from('../test.txt').toString('base64') 
-console.log(encryptedHex, encryptedBase64)
+//console.log(encryptedHex, encryptedBase64)
 
 
 async function encryptFiles(text1, text2) {
@@ -149,7 +149,7 @@ async function deleteFiles( text1 ) {
     console.log(err);
   }
 }
-deleteFiles( '../test.txt' )
+// deleteFiles( '../test.txt' )
 
 
 // Crea una altra funció que desencripti i descodifiqui els fitxers de l'apartat anterior 
@@ -164,7 +164,7 @@ decryptedHex += decipher.final('utf8')
 let decryptedBase64 = decipher64.update(encryptedBase64, 'base64', 'utf8')
 decryptedBase64 += decipher64.final('utf8')
 //let encryptedBase64 = Buffer.from('../test.txt').toString('base64') 
-console.log(decryptedHex, decryptedBase64)
+//console.log(decryptedHex, decryptedBase64)
 
 async function decryptFiles(text1, text2) {
   try {
