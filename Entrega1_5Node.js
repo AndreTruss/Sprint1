@@ -10,7 +10,7 @@ async function writeText(text) {
     console.log(err);
   }
 }
-//writeText('If you read this, then exercise1 works');
+writeText('If you read this, then exercise1 works');
 
 
 // Nivell1 Exercici2
@@ -24,7 +24,7 @@ async function readText() {
     console.log(err);
   }
 }
-//readText();
+readText();
 
 
 // Nivell1 Exercici3
@@ -53,7 +53,7 @@ async function do_gzip(input, output) {
 // Nivell2 Exercici1
 // Crea una funció que imprimeixi recursivament un missatge per la consola amb demores d'un segon.
 
-let boolean = true
+/* let boolean = true
 
 function sleep( ms ) {
     return new Promise( ( resolve, reject ) => {
@@ -74,7 +74,7 @@ async function recursiveFunction( ms ) {
         console.log( err.message )
     }
 }
-//recursiveFunction( 1000 )
+recursiveFunction( 1000 ) */
 
 // Nivell2 Exercici2
 // Crea una funció que llisti per la consola el contingut 
@@ -104,12 +104,6 @@ ls.on('close', (code) => {
 // Crea una funció que creï dos fitxers codificats en hexadecimal i en base64 respectivament, 
 // a partir del fitxer del nivell 1.
 
-// Crea una funció que guardi els fitxers del punt anterior, 
-// ara encriptats amb l'algoritme aes-192-cbc, i esborri els fitxers inicials.
-
-// Crea una altra funció que desencripti i descodifiqui els fitxers de l'apartat anterior 
-// tornant a generar una còpia de l'inicial.
-// Inclou un README amb instruccions per a l'execució de cada part.
 
 const { createCipheriv, scryptSync, createDecipheriv } = require('crypto')
 const { Buffer } = require( 'buffer')
@@ -123,10 +117,10 @@ const iv = Buffer.alloc(16, 0)
 const cipher = createCipheriv(algorithm, key, iv)
 const cipher64 = createCipheriv(algorithm, key, iv)
 
-let encryptedHex = cipher.update('../test.txt', 'utf8', 'hex')
+let encryptedHex = cipher.update('If you read this, then exercise1 works', 'utf8', 'hex')
 encryptedHex += cipher.final('hex')
 
-let encryptedBase64 = cipher64.update('../test.txt', 'utf8', 'base64')
+let encryptedBase64 = cipher64.update('If you read this, then exercise1 works', 'utf8', 'base64')
 encryptedBase64 += cipher64.final('base64')
 
 //let encryptedBase64 = Buffer.from('../test.txt').toString('base64') 
@@ -144,6 +138,23 @@ async function encryptFiles(text1, text2) {
 encryptFiles( encryptedHex, encryptedBase64 )
 
 
+// Crea una funció que guardi els fitxers del punt anterior, 
+// ara encriptats amb l'algoritme aes-192-cbc, i esborri els fitxers inicials.
+
+async function deleteFiles( text1 ) {
+  try {
+    await fs.rm( text1 )
+    console.log('File correctly delete')
+  } catch (err) {
+    console.log(err);
+  }
+}
+deleteFiles( '../test.txt' )
+
+
+// Crea una altra funció que desencripti i descodifiqui els fitxers de l'apartat anterior 
+// tornant a generar una còpia de l'inicial.
+// Inclou un README amb instruccions per a l'execució de cada part.
 const decipher = createDecipheriv(algorithm, key, iv)
 const decipher64 = createDecipheriv(algorithm, key, iv)
 
