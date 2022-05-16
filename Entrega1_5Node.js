@@ -10,7 +10,7 @@ async function writeText(text) {
     console.log(err);
   }
 }
-writeText('If you read this, then exercise1 works');
+writeText('If you read this, then exercise 1.1 works');
 
 
 // Nivell1 Exercici2
@@ -53,28 +53,31 @@ async function do_gzip(input, output) {
 // Nivell2 Exercici1
 // Crea una funció que imprimeixi recursivament un missatge per la consola amb demores d'un segon.
 
+const { setInterval, setTimeout } = require( 'timers')
 let boolean = true
 
-function sleep( ms ) {
-    return new Promise( ( resolve, reject ) => {
-        boolean 
-        ? setInterval( resolve, ms )
-        : reject( new Error( 'Nothing' ) )
-    })
+const sleep = time => {
+    
+  const interval = setInterval( () => {
+
+    if (boolean === false) clearInterval(interval)
+    console.log('Hello ...') 
+
+  }, time )
 }
 
-async function recursiveFunction( ms ) {
-    try {
-        while ( true ) {
-            setTimeout( () => { boolean = false }, 5000 )
-            console.log('I want to say ...')
-            await sleep( ms )
-        } 
-    } catch ( err ) {
-        console.log( err.message )
-    }
+async function recursiveFunction( msec ) {
+  try {
+    
+    setTimeout( () => { boolean = false }, 6000 )          
+    sleep( msec )
+            
+  } catch ( err ) {
+    console.log( err.message )
+  }
 }
-//recursiveFunction( 1000 )
+recursiveFunction( 1000 )
+
 
 // Nivell2 Exercici2
 // Crea una funció que llisti per la consola el contingut 
@@ -117,10 +120,10 @@ const iv = Buffer.alloc(16, 0)
 const cipher = createCipheriv(algorithm, key, iv)
 const cipher64 = createCipheriv(algorithm, key, iv)
 
-let encryptedHex = cipher.update('If you read this, then exercise1 works', 'utf8', 'hex')
+let encryptedHex = cipher.update('If you read this, then exercise 1.1 works', 'utf8', 'hex')
 encryptedHex += cipher.final('hex')
 
-let encryptedBase64 = cipher64.update('If you read this, then exercise1 works', 'utf8', 'base64')
+let encryptedBase64 = cipher64.update('If you read this, then exercise 1.1 works', 'utf8', 'base64')
 encryptedBase64 += cipher64.final('base64')
 
 //let encryptedBase64 = Buffer.from('../test.txt').toString('base64') 
