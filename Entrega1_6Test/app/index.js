@@ -1,11 +1,10 @@
 // function sum, rest, multiply and divide
 
-function sum(a, b) { return (a + b) }
-const rest = (a, b ) => { return a - b }
-const multiply = (a, b ) => { return (a * b ) }
-const divide = (a, b ) => { return a / b }
+function operation( value, a, b, c ) {
+if ( value == 'sum' ) { return (a + b + c )}
+if ( value == 'rest' ) { return a - b - c }
+if ( value == 'multiply' ) { return (a * b * c) }
+if ( value == 'divide' ) { return a / b }
+}
 
-module.exports = sum
-module.exports = rest
-module.exports = multiply
-module.exports = divide
+module.exports = operation
