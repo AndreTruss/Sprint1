@@ -1,16 +1,16 @@
 // Nivell1 Exercici1
 // Crea una funció que, en executar-la, escrigui una frase en un fitxer.
 
-const fs = require('fs/promises');
+const fs = require('fs/promises')
 
 async function writeText(text) {
   try {
-    await fs.writeFile('../test.txt', text);
+    await fs.writeFile('./text.txt', text)
   } catch (err) {
-    console.log(err);
+    console.log(err)
   }
 }
-writeText('If you read this, then exercise 1.1 works');
+writeText('If you read this, then exercise 1.1 works')
 
 
 // Nivell1 Exercici2
@@ -18,13 +18,13 @@ writeText('If you read this, then exercise 1.1 works');
 
 async function readText() {
   try {
-    const data = await fs.readFile('../test.txt', { encoding: 'utf8' });
-    console.log(data);
+    const data = await fs.readFile('./text.txt', { encoding: 'utf8' })
+    console.log(data)
   } catch (err) {
-    console.log(err);
+    console.log(err)
   }
 }
-readText();
+readText()
 
 
 // Nivell1 Exercici3
@@ -43,7 +43,7 @@ async function do_gzip(input, output) {
   await pipe(source, gzip, destination)
 }
 
-/* do_gzip('../test.txt', '../test.txt.gz')
+/* do_gzip('./text.txt', './text.txt.gz')
   .catch((err) => {
     console.error('An error occurred:', err);
     process.exitCode = 1
@@ -76,7 +76,7 @@ async function recursiveFunction( msec ) {
     console.log( err.message )
   }
 }
-recursiveFunction( 1000 )
+//recursiveFunction( 1000 )
 
 
 // Nivell2 Exercici2
@@ -84,7 +84,7 @@ recursiveFunction( 1000 )
 // del directori d'usuari de l'ordinador utilizant Node Child Processes.
 
 
-const { spawn } = require('child_process')
+/* const { spawn } = require('child_process')
 const os = require('os')
 
 const userDirectory = os.homedir()
@@ -120,7 +120,7 @@ else {
   ls.on('close', (code) => {
     console.log(`child process exited with code ${code}`)
   })
-}
+} */
 
 
 // Nivell3 Exercici1
@@ -152,8 +152,8 @@ encryptedBase64 += cipher64.final('base64')
 
 async function encryptFiles(text1, text2) {
   try {
-    await fs.writeFile('../testHex.txt', text1)
-    await fs.writeFile('../testBase64.txt', text2)
+    await fs.writeFile('./textHex.txt', text1)
+    await fs.writeFile('./textBase64.txt', text2)
   } catch (err) {
     console.log(err);
   }
@@ -191,8 +191,8 @@ decryptedBase64 += decipher64.final('utf8')
 
 async function decryptFiles(text1, text2) {
   try {
-    await fs.writeFile('../dectestHex.txt', text1)
-    await fs.writeFile('../dectestBase64.txt', text2)
+    await fs.writeFile('./textHexdecry.txt', text1)
+    await fs.writeFile('./textBase64decry.txt', text2)
   } catch (err) {
     console.log(err);
   }
