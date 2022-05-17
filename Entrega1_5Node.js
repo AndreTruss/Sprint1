@@ -84,23 +84,43 @@ recursiveFunction( 1000 )
 // del directori d'usuari de l'ordinador utilizant Node Child Processes.
 
 
-/* const { spawn } = require('child_process');
-const os = require('os');
+const { spawn } = require('child_process')
+const os = require('os')
 
 const userDirectory = os.homedir()
-const ls = spawn('ls', [ userDirectory ]);
+const valueOS = os.platform()
 
-ls.stdout.on('data', (data) => {
-  console.log(`stdout: ${data}`);
-});
+if ( valueOS == 'win32' ) {
 
-ls.stderr.on('data', (data) => {
-  console.error(`stderr: ${data}`);
-});
+  const dir = spawn('dir', [ userDirectory ])
 
-ls.on('close', (code) => {
-  console.log(`child process exited with code ${code}`);
-}); */
+  dir.stdout.on('data', (data) => {
+    console.log(`stdout: ${data}`)
+  })
+
+  dir.stderr.on('data', (data) => {
+    console.error(`stderr: ${data}`)
+  })
+
+  dir.on('close', (code) => {
+    console.log(`child process exited with code ${code}`)
+  })
+}
+else {
+  const ls = spawn('ls', [ userDirectory ])
+
+  ls.stdout.on('data', (data) => {
+    console.log(`stdout: ${data}`)
+  })
+
+  ls.stderr.on('data', (data) => {
+    console.error(`stderr: ${data}`)
+  })
+
+  ls.on('close', (code) => {
+    console.log(`child process exited with code ${code}`)
+  })
+}
 
 
 // Nivell3 Exercici1
