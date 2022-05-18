@@ -54,7 +54,7 @@ async function functEmployees(empId){
         console.log(`¡No! ${error.message}`) 
     }
 }
-functEmployees(2)
+//functEmployees(2)
 
 
 // Nivell1 Exercici2
@@ -77,7 +77,7 @@ async function resolveIn2SecFunctionAsync(value){
         console.log(`¡No! ${error.message}`) 
     }
 }
-resolveIn2SecFunctionAsync( true )
+//resolveIn2SecFunctionAsync( true )
 
 // Nivell2 Exercici1
 // Crea una funció que retorni el doble del número que se li passa 
@@ -94,23 +94,15 @@ const dobleNumber = number => {
     })
 }
 
-
-const dobleIn2Seconds = num => { 
-	return new Promise( (resolve, reject) => {
-        !isNaN( num ) 
-            ? setTimeout( () => resolve( dobleNumber( num ) ), 2000 ) 
-            : reject( new Error('¡Fail ecercici 2.1!') )
-    }) 
-}
 async function dobleIn2secFunctionAsync( numero ){
     try {
-        const message = await dobleIn2Seconds( numero )
-        console.log( `Doble of number ${numero} is ${message}` )
+        const message =  await dobleNumber( numero )
+        setTimeout( () => console.log(`Doble of number ${numero} is ${message}`), 2000 )
     } catch (error) {
         console.log(`¡No! ${error.message}`) 
     }
 }
-dobleIn2secFunctionAsync( 6 )
+//dobleIn2secFunctionAsync( 6 )
 
 async function sumDobleFunctionAsync( num1, num2, num3 ){
     try {
@@ -125,15 +117,21 @@ async function sumDobleFunctionAsync( num1, num2, num3 ){
         console.log(`¡No! ${error.message}`) 
     }
 }
-sumDobleFunctionAsync( 2, 3, 6 )
+//sumDobleFunctionAsync( 2, 3, 6 )
+
+module.exports = {
+    functEmployees,
+    dobleIn2secFunctionAsync,
+    sumDobleFunctionAsync
+}
 
 // Nivell3 Exercici1
 // Força i captura tants errors com puguis dels nivells 1 i 2.
 
-functEmployees( 5 )
+/* functEmployees( 5 )
 resolveIn2SecFunctionAsync( false )
 dobleIn2secFunctionAsync( 'c' )
 dobleIn2secFunctionAsync( NaN )
 sumDobleFunctionAsync( 2, 3 )
-sumDobleFunctionAsync( undefined, 0, 0 )
+sumDobleFunctionAsync( undefined, 0, 0 ) */
   
