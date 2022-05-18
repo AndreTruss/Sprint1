@@ -1,4 +1,4 @@
-// Nivell4 Exercici1
+// Nivell1 Exercici1
 // Crea una funció asíncrona que rebi un id d'empleat 
 // i imprimeixi per pantalla el nom de l'empleat i el seu salari, 
 // usant les funcions getEmployee() i getSalary() que has definit a la tasca anterior.
