@@ -97,7 +97,7 @@ const valueOS = os.platform()
 
 if ( valueOS == 'win32' ) {
 
-  const dir = spawn('dir', [ userDirectory ])
+  const dir = spawn('dir', [ userDirectory ], { shell: true})
   
 /*   dir.stdout.on('data', (data) => {
     console.log(`stdout: ${data}`)
@@ -125,7 +125,7 @@ else {
 
   ls.on('close', (code) => {
     console.log(`child process exited with code ${code}`) 
-  })*/
+  }) */
 }
 
 
@@ -204,18 +204,3 @@ async function decryptFiles(text1, text2) {
   }
 }
 // decryptFiles( decryptedHex, decryptedBase64 )
-
-
-// README.md
-
-/* fs.appendFile('./README.md', '1- writeText function write a text in a file.\n\n')
-fs.appendFile('./README.md', '2- readText function read the previous text and show on console.\n\n')
-fs.appendFile('./README.md', '3- do_gzip function format the previous text file.\n\n')
-fs.appendFile('./README.md', '4- recursiveFunction write a text on console every second, stop after 6 seconds.\n\n')
-fs.appendFile('./README.md', '5- Module child process list user directory files (works on windows and apple).\n\n')
-fs.appendFile('./README.md', '6- encryptFiles function encrypt a phrase in two file: one on hexadecimal code, the other on base64.\n\n')
-fs.appendFile('./README.md', '7- deleteFiles function delete first text file created.\n\n')
-fs.appendFile('./README.md', '8- decryptFiles function decrypt previous text in two other files: hexadecimal and base64.\n\n')
- */
-
- 

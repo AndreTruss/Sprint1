@@ -5,6 +5,7 @@
 # Entrega 1.4: Async / AwaitTasca
 # Entrega 1.5: Node Utils
 
+At first all functions are disabled, turn it on in this order:
 
 1- writeText function write a text in a file.
 
@@ -12,7 +13,7 @@
 
 3- do_gzip function format the previous text file.
 
-4- recursiveFunction write a text on console every second, stop after 6 seconds.
+4- recursiveFunction write a text on console every second, I have decided to stop it after 6 seconds.
 
 5- Module child process list user directory files (works on windows and apple).
 
