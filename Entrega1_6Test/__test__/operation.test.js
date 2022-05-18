@@ -20,19 +20,19 @@ test('divides 6 / 2 to equal 3', () => {
 
 
 
-test('add id employees 1 to equal Linux Torvalds', async () => {
+/* test('add id employees 1 to equal Linux Torvalds', async () => {
 
   return expect(functEmployees(1)).resolves.toBe('Employee: Linux Torvalds, have salary: 4000');
-});
+}); */
 
 /* test('el fecth falla con un error', async () => {
   await expect(functEmployees(5)).rejects.toMatch('error');
 }); */
-test('the fetch fails with an error', async () => {
+test('add id employees 1 to equal Linux Torvalds', async () => {
   
   try {
-    await functEmployees(1);
+    await expect(functEmployees(1)).toBe('Employee: Linux Torvalds, have salary: 4000')
   } catch (e) {
-    expect(e).toMatch('error');
+    console.log(e);
   }
 });
