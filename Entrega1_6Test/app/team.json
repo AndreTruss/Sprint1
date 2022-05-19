@@ -1,0 +1,17 @@
+[
+    {
+      "login": "jason",
+      "id": 1482046,
+      "site_admin": false
+    },
+    {
+      "login": "michael",
+      "id": 1819122,
+      "site_admin": false
+    },
+    {
+      "login": "arnold",
+      "id": 2323810,
+      "admin": true
+    }
+  ]

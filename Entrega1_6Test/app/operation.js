@@ -86,9 +86,33 @@ getEmployee(1)
 	.then( valueEmp => 
 		getSalary(valueEmp)
 		.then( valueSal => 
-			console.log(`Employee: ${valueEmp.name} have salary: ${valueSal.salary}`)
+			{ return (`Employee: ${valueEmp.name} have salary: ${valueSal.salary}`) }
 		)
 	)
+
+// exercise Classes Nivell2 Exercici2
+// I have created a specific file Persona.js containing class Persona for testing with mock
+
+
+// exercise Classes Nivell 3 Exercici1
+
+class Abstract {
+    constructor(){
+        if (this.constructor == Abstract) {
+        throw new Error("You cannot create an instance of Abstract class ")
+        }          
+    }
+    info(){
+        throw new Error("Abstract Method has no implementation")
+    }
+}
+
+function createObj(message) { 
+    this.message = message 
+    Abstract.prototype.info = function() { return `Message is: ${this.message}` }
+}
+
+createObj.prototype = Object.create(Abstract.prototype)
 
 module.exports = {
     sum,
@@ -98,5 +122,6 @@ module.exports = {
     functEmployees,
     dobleIn2secFunctionAsync,
     getEmployee,
-    getSalary
+    getSalary,
+    createObj
 }

@@ -1,3 +1,4 @@
+// NIVELL 1
 //Crea un arxiu amb les funcions sumar, restar, multiplicar i dividir dos o més operands. Testeja la correcta execució d'aquestes funcions.
 
 const { 
@@ -8,7 +9,8 @@ const {
   functEmployees, 
   dobleIn2secFunctionAsync,
   getEmployee,
-  getSalary
+  getSalary,
+  createObj
 } = require('../app/operation')
 
 describe('function sum', () => {
@@ -53,8 +55,8 @@ test('add id employees 1 to equal Linux Torvalds', async () => {
 
 describe('exercise Promises 2.3', () => {
   test('add id employees 1 to equal Linux Torvalds', () => {
-    return getEmployee(1).then(value => {
-      return getSalary(value).then(data => {
+    return getEmployee(1).then(Person => {
+      return getSalary(Person).then(data => {
         expect(data).toMatch(`Employee: Linux Torvalds, have salary: 4000`)
     })
   })
@@ -76,10 +78,112 @@ test('doble 6 is 12', async () => {
     expect(setTimeout).toHaveBeenLastCalledWith( expect.any( Function ), 2000)  
 
   } catch (error) {  
-    console.log(error)   
+    return (error)   
   }
 })
 })
 
 
 
+// NIVELL 2
+// Crea un mock que comprovi les crides al constructor de la classe Persona 
+// i al seu mètode decirNombre en l'exercici Classes & Arrow Functions - Nivell 2 Exercici 2
+
+/* class Persona {
+  constructor( nom ) {
+      this.name = nom
+  }
+  dirNom () {
+      return `My name is ${this.name}` 
+  }
+} */
+
+//const {Persona} = require( '../app/Persona')
+//const NewPersona = require( '../app/NewPersona')
+
+/* jest.mock('../app/Persona', () => {
+  // Works and lets you check for constructor calls:
+  return jest.fn().mockImplementation(() => {
+    return {dirNom: () => {}};
+  });
+})  */
+
+
+const Person = require('../app/Persona')
+jest.mock('../app/Persona')
+
+beforeEach(() => {
+  // Clear all instances and calls to constructor and all methods:
+  Person.mockClear();
+});
+
+describe('exercise Classes 2.2', () => {
+test('We should be able to call new() on Person', () => {
+  const newPerson = new Person();
+  // Ensure constructor created the object:
+  expect(newPerson).toBeTruthy();
+})
+})
+
+//const personaMock = jest.spyOn(Persona, 'dirNom')
+
+describe('exercise Classes 2.2', () => {
+  test('We can check if we called the class constructor', () => {
+    const newPerson = new Person()
+  
+  //const coolName = 'My name is Andrea';
+  newPerson.dirNom();
+  expect( Person ).toHaveBeenCalledTimes(1)
+})
+})
+
+describe('exercise Classes 2.2', () => {
+test('We can check if we called a method on the class instance', () => {
+  expect(Person).not.toHaveBeenCalled()
+
+  const newPerson = new Person()
+
+  expect( Person ).toHaveBeenCalledTimes(1)
+
+  const coolName = 'Andrea';
+  newPerson.dirNom('Andrea')
+  //expect( personaMock ).toHaveBeenCalled()
+  //expect( personaMock ).toMatch('My name is Andrea')
+  // mock.instances is available with automatic mocks:
+  const mockPersonInstance = Person.mock.instances[0];
+  const mockPerson = mockPersonInstance.dirNom;
+  //expect(mockPerson.mock.calls[0][0]).toEqual(coolName);
+  // Equivalent to above check:
+  expect(mockPerson).toHaveBeenCalledWith('Andrea');
+  expect(mockPerson).toHaveBeenCalledTimes(1);
+})
+})
+
+
+// Verifica mitjançant tests l'exercici Classes & Arrow Functions Nivell 3 - Exercici 1.
+
+describe('exercise Classes 3.1', () => {
+  test('Verify object message equal to Message is: Everything you want', () => {
+    const object1 = new createObj('Everything you want')
+    expect( object1.info() ).toMatch('Message is: Everything you want')
+  })
+  })
+
+// NIVELL 3
+// Refès l'exercici Async / Await Nivell 1 accedint a un fitxer extern JSON. 
+// Crea tests que demostrin la correcta execució de l'exercici fent un mock del fitxer JSON.
+
+
+const data = require('../app/team.json')
+console.log(data)
+jest.mock('../app/team.json')
+
+
+describe('exercise Async 1.1', () => {
+  test('add id employees 1 to equal Linux Torvalds', async () => {
+    
+    const mockEmployeeId = data.mock.instances[0].id;
+    expect(mockEmployeeId).toHaveBeenCalledWith('Andrea');
+
+  })
+  })
