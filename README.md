@@ -11,7 +11,7 @@ At first all functions are disabled, turn it on in this order:
 
 2- readText function read the previous text and show on console.
 
-3- do_gzip function format the previous text file.
+3- do_gzip function compress the previous text file.
 
 4- recursiveFunction write a text on console every second, I have decided to stop it after 6 seconds.
 

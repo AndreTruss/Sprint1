@@ -119,11 +119,6 @@ async function sumDobleFunctionAsync( num1, num2, num3 ){
 }
 //sumDobleFunctionAsync( 2, 3, 6 )
 
-module.exports = {
-    functEmployees,
-    dobleIn2secFunctionAsync,
-    sumDobleFunctionAsync
-}
 
 // Nivell3 Exercici1
 // Força i captura tants errors com puguis dels nivells 1 i 2.

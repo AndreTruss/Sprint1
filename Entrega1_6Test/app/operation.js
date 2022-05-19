@@ -6,6 +6,7 @@ const multiply = ( a, b, c ) => { return (a * b * c ) }
 const divide = ( a, b ) => { return (a / b ) }
 
 
+// exercici Async / Await Nivell 1 - Exercici 1
 
 let employees = [{
     id: 1,
@@ -53,16 +54,38 @@ async function functEmployees(empId){
     try {
         const employee = await getEmployee(empId)
         const message = await getSalary(employee)
-        console.log (message)
+        return (message)
     } catch (error) {
-        console.log(`¡No! ${error.message}`) 
+        return (`¡No! ${error.message}`) 
     }
 }
 functEmployees(1)
+
+
+// exercici Async / Await Nivell 2 - Exercici 1
+
+const dobleNumber = number => {
+    return new Promise( (resolve, reject) => { 
+    !isNaN( number )  
+        ? resolve( number * 2 )
+        : reject( new Error('¡Fail ecercici 2.1!') )
+    })
+}
+
+async function dobleIn2secFunctionAsync( numero ){
+    try {
+        const message =  await dobleNumber( numero )
+        setTimeout( () => (`Doble of number ${numero} is ${message}`), 2000 )
+    } catch (error) {
+        return (`¡No! ${error.message}`) 
+    }
+}
+
 module.exports = {
     sum,
     rest,
     multiply,
     divide,
-    functEmployees
+    functEmployees,
+    dobleIn2secFunctionAsync
 }

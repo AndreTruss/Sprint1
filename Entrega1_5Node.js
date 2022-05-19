@@ -10,7 +10,7 @@ async function writeText(text) {
     console.log(err)
   }
 }
-// writeText('If you read this, then function writeText and readText works')
+//writeText('If you read this, then function writeText and readText works')
 
 
 
@@ -143,25 +143,29 @@ const password = 'Password used to generate key';
 const key = scryptSync(password, 'salt', 24);
 const iv = Buffer.alloc(16, 0)
 
-const cipher = createCipheriv(algorithm, key, iv)
-const cipher64 = createCipheriv(algorithm, key, iv)
-
-let encryptedHex = cipher.update('If you read this, then exercise 1.1 works', 'utf8', 'hex')
-encryptedHex += cipher.final('hex')
-
-let encryptedBase64 = cipher64.update('If you read this, then exercise 1.1 works', 'utf8', 'base64')
-encryptedBase64 += cipher64.final('base64')
-
-
-async function encryptFiles(text1, text2) {
+async function encryptFiles() {
   try {
-    await fs.writeFile('./textHex.txt', text1)
-    await fs.writeFile('./textBase64.txt', text2)
+
+    const text = await fs.readFile('./text.txt', { encoding: 'utf8' })
+
+    const cipher = createCipheriv(algorithm, key, iv)
+    const cipher64 = createCipheriv(algorithm, key, iv)
+
+    let encryptedHex = cipher.update(text, 'utf8', 'hex')
+    encryptedHex += cipher.final('hex')
+
+    let encryptedBase64 = cipher64.update(text, 'utf8', 'base64')
+    encryptedBase64 += cipher64.final('base64')
+
+
+    await fs.writeFile('./textHex.txt', encryptedHex)
+    await fs.writeFile('./textBase64.txt', encryptedBase64)
+
   } catch (err) {
     console.log(err);
   }
 }
-//encryptFiles( encryptedHex, encryptedBase64 )
+//encryptFiles()
 
 
 
@@ -185,22 +189,28 @@ async function deleteFiles( text1 ) {
 // Crea una altra funció que desencripti i descodifiqui els fitxers de l'apartat anterior 
 // tornant a generar una còpia de l'inicial.
 // Inclou un README amb instruccions per a l'execució de cada part.
-const decipher = createDecipheriv(algorithm, key, iv)
-const decipher64 = createDecipheriv(algorithm, key, iv)
 
-let decryptedHex = decipher.update(encryptedHex, 'hex', 'utf8')
-decryptedHex += decipher.final('utf8')
-
-let decryptedBase64 = decipher64.update(encryptedBase64, 'base64', 'utf8')
-decryptedBase64 += decipher64.final('utf8')
-
-
-async function decryptFiles(text1, text2) {
+async function decryptFiles() {
   try {
-    await fs.writeFile('./textHexdecry.txt', text1)
-    await fs.writeFile('./textBase64decry.txt', text2)
+
+    const text1 = await fs.readFile('./textHex.txt', { encoding: 'utf8' })
+    const text2 = await fs.readFile('./textBase64.txt', { encoding: 'utf8' })
+
+    const decipher = createDecipheriv(algorithm, key, iv)
+    const decipher64 = createDecipheriv(algorithm, key, iv)
+
+    let decryptedHex = decipher.update(text1, 'hex', 'utf8')
+    decryptedHex += decipher.final('utf8')
+
+    let decryptedBase64 = decipher64.update(text2, 'base64', 'utf8')
+    decryptedBase64 += decipher64.final('utf8')
+
+
+    await fs.writeFile('./textHexdecry.txt', decryptedHex)
+    await fs.writeFile('./textBase64decry.txt', decryptedBase64)
+
   } catch (err) {
     console.log(err);
   }
 }
-// decryptFiles( decryptedHex, decryptedBase64 )
+//decryptFiles()
