@@ -14,7 +14,7 @@ let employees = [{
 }, {
     id: 2,
     name: 'Bill Gates'
-},{
+}, {
     id: 3,
     name: 'Jeff Bezos'
 }];
@@ -54,12 +54,11 @@ async function functEmployees(empId){
     try {
         const employee = await getEmployee(empId)
         const message = await getSalary(employee)
-        return (message)
+        return message
     } catch (error) {
         return (`¡No! ${error.message}`) 
     }
 }
-functEmployees(1)
 
 
 // exercici Async / Await Nivell 2 - Exercici 1
@@ -81,11 +80,23 @@ async function dobleIn2secFunctionAsync( numero ){
     }
 }
 
+// exercise Promise Nivell2 Exercici3
+
+getEmployee(1)
+	.then( valueEmp => 
+		getSalary(valueEmp)
+		.then( valueSal => 
+			console.log(`Employee: ${valueEmp.name} have salary: ${valueSal.salary}`)
+		)
+	)
+
 module.exports = {
     sum,
     rest,
     multiply,
     divide,
     functEmployees,
-    dobleIn2secFunctionAsync
+    dobleIn2secFunctionAsync,
+    getEmployee,
+    getSalary
 }
