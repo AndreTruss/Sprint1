@@ -174,16 +174,35 @@ describe('exercise Classes 3.1', () => {
 // Crea tests que demostrin la correcta execució de l'exercici fent un mock del fitxer JSON.
 
 
-const data = require('../app/team.json')
-console.log(data)
-jest.mock('../app/team.json')
+// const Data = require('../app/team.json')
+// jest.mock('../app/team.json')
+
+import myJson from '../app/team.json' assert {type: 'json'};
+
+// 👇️ {
+//   name: 'Alice',
+//   country: 'Austria',
+//   tasks: [ 'develop', 'design', 'test' ],
+//   age: 30
+// }
+console.log(myJson.person);
+
+console.log(myJson.person.name); // 👉️ "Alice"
+console.log(myJson.person.country); // 👉️ "Austria"
 
 
-describe('exercise Async 1.1', () => {
-  test('add id employees 1 to equal Linux Torvalds', async () => {
+
+describe('exercise Async 1.1 mock del fitxer JSON', () => {
+  test('add id employees 1 to equal Linux Torvalds salary 4000', async () => {
     
-    const mockEmployeeId = data.mock.instances[0].id;
-    expect(mockEmployeeId).toHaveBeenCalledWith('Andrea');
+    //const mockInstance = Data.mock.instances[0]
+    //const mockEmployeeId = jest.spyOn(Data, 'id')
+    //const mockEmployeeName = mockInstance.name
+    //const mockEmployeeSalary = mockInstance.salary
+
+    //expect( mockInstance).toBe( 1 )
+    //expect( mockEmployeeName ).toHaveBeenCalledWith( 'Linux Torvalds' )
+    //expect( mockEmployeeSalary ).toBe( 4000 )
 
   })
   })

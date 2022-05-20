@@ -1,17 +1,17 @@
 [
     {
-      "login": "jason",
-      "id": 1482046,
-      "site_admin": false
+      "name": "Linux Torvalds",
+      "id": 1,
+      "salary": 4000
     },
     {
-      "login": "michael",
-      "id": 1819122,
-      "site_admin": false
+      "name": "Bill Gates",
+      "id": 2,
+      "salary": 1000
     },
     {
-      "login": "arnold",
-      "id": 2323810,
-      "admin": true
+      "name": "Jeff Bezos",
+      "id": 3,
+      "salary": 2000
     }
   ]
