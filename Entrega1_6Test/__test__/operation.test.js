@@ -157,19 +157,14 @@ describe('exercise Classes 3.1', () => {
 // Crea tests que demostrin la correcta execució de l'exercici fent un mock del fitxer JSON.
 
 
-const DataEmployee = require ( '../app/team.json' )
+const instance = jest.createMockFromModule( '../app/team.json' )
 
 describe('exercise Async 1.1 mock del fitxer JSON', () => {
-  test('add id employees 1 to equal Linux Torvalds salary 4000', async () => {
-    
-    const instance = DataEmployee[0]
-    const employeeId = instance.id
-    const employeeName = instance.name
-    const employeeSalary = instance.salary
+  test('add employee1 id toBe 1, name to equal Linux Torvalds, salary toBe 4000', async () => {
 
-    expect( employeeId ).toBe( 1 )
-    expect( employeeName ).toMatch( 'Linux Torvalds' )
-    expect( employeeSalary ).toBe( 4000 )
+    expect( instance.Employee1.id ).toBe( 1 )
+    expect( instance.Employee1.name ).toMatch( 'Linux Torvalds' )
+    expect( instance.Employee1.salary ).toBe( 4000 )
 
   })
   })

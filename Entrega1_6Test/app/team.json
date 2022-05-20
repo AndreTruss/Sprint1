@@ -1,17 +1,17 @@
-[
-    {
+{
+    "Employee1": {
       "name": "Linux Torvalds",
       "id": 1,
       "salary": 4000
     },
-    {
+    "Employee2": {
       "name": "Bill Gates",
       "id": 2,
       "salary": 1000
     },
-    {
+    "Employee3": {
       "name": "Jeff Bezos",
       "id": 3,
       "salary": 2000
     }
-  ]
+  }
