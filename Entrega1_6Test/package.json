@@ -1,14 +1,17 @@
 {
   "name": "entrega1_6test",
   "version": "1.0.0",
-  "description": "",
+  "description": "Jest test",
   "main": "operation.js",
+  
   "scripts": {
     "test": "jest"
   },
+
   "keywords": [],
-  "author": "",
+  "author": "AndreTruss",
   "license": "ISC",
+  
   "devDependencies": {
     "jest": "^28.1.0"
   }

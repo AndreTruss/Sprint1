@@ -89,25 +89,6 @@ test('doble 6 is 12', async () => {
 // Crea un mock que comprovi les crides al constructor de la classe Persona 
 // i al seu mètode decirNombre en l'exercici Classes & Arrow Functions - Nivell 2 Exercici 2
 
-/* class Persona {
-  constructor( nom ) {
-      this.name = nom
-  }
-  dirNom () {
-      return `My name is ${this.name}` 
-  }
-} */
-
-//const {Persona} = require( '../app/Persona')
-//const NewPersona = require( '../app/NewPersona')
-
-/* jest.mock('../app/Persona', () => {
-  // Works and lets you check for constructor calls:
-  return jest.fn().mockImplementation(() => {
-    return {dirNom: () => {}};
-  });
-})  */
-
 
 const Person = require('../app/Persona')
 jest.mock('../app/Persona')
@@ -169,40 +150,26 @@ describe('exercise Classes 3.1', () => {
   })
   })
 
+
+
 // NIVELL 3
 // Refès l'exercici Async / Await Nivell 1 accedint a un fitxer extern JSON. 
 // Crea tests que demostrin la correcta execució de l'exercici fent un mock del fitxer JSON.
 
 
-// const Data = require('../app/team.json')
-// jest.mock('../app/team.json')
-
-import myJson from '../app/team.json' assert {type: 'json'};
-
-// 👇️ {
-//   name: 'Alice',
-//   country: 'Austria',
-//   tasks: [ 'develop', 'design', 'test' ],
-//   age: 30
-// }
-console.log(myJson.person);
-
-console.log(myJson.person.name); // 👉️ "Alice"
-console.log(myJson.person.country); // 👉️ "Austria"
-
-
+const DataEmployee = require ( '../app/team.json' )
 
 describe('exercise Async 1.1 mock del fitxer JSON', () => {
   test('add id employees 1 to equal Linux Torvalds salary 4000', async () => {
     
-    //const mockInstance = Data.mock.instances[0]
-    //const mockEmployeeId = jest.spyOn(Data, 'id')
-    //const mockEmployeeName = mockInstance.name
-    //const mockEmployeeSalary = mockInstance.salary
+    const instance = DataEmployee[0]
+    const employeeId = instance.id
+    const employeeName = instance.name
+    const employeeSalary = instance.salary
 
-    //expect( mockInstance).toBe( 1 )
-    //expect( mockEmployeeName ).toHaveBeenCalledWith( 'Linux Torvalds' )
-    //expect( mockEmployeeSalary ).toBe( 4000 )
+    expect( employeeId ).toBe( 1 )
+    expect( employeeName ).toMatch( 'Linux Torvalds' )
+    expect( employeeSalary ).toBe( 4000 )
 
   })
   })
