@@ -100,6 +100,7 @@ beforeEach(() => {
 
 describe('exercise Classes 2.2', () => {
 test('We should be able to call new() on Person', () => {
+  
   const newPerson = new Person();
   // Ensure constructor created the object:
   expect(newPerson).toBeTruthy();
@@ -110,31 +111,28 @@ test('We should be able to call new() on Person', () => {
 
 describe('exercise Classes 2.2', () => {
   test('We can check if we called the class constructor', () => {
+
     const newPerson = new Person()
   
-  //const coolName = 'My name is Andrea';
-  newPerson.dirNom();
-  expect( Person ).toHaveBeenCalledTimes(1)
+    newPerson.dirNom();
+    expect( Person ).toHaveBeenCalledTimes(1)
 })
 })
 
 describe('exercise Classes 2.2', () => {
 test('We can check if we called a method on the class instance', () => {
+
   expect(Person).not.toHaveBeenCalled()
 
   const newPerson = new Person()
 
   expect( Person ).toHaveBeenCalledTimes(1)
 
-  const coolName = 'Andrea';
   newPerson.dirNom('Andrea')
-  //expect( personaMock ).toHaveBeenCalled()
-  //expect( personaMock ).toMatch('My name is Andrea')
-  // mock.instances is available with automatic mocks:
+  
   const mockPersonInstance = Person.mock.instances[0];
   const mockPerson = mockPersonInstance.dirNom;
-  //expect(mockPerson.mock.calls[0][0]).toEqual(coolName);
-  // Equivalent to above check:
+ 
   expect(mockPerson).toHaveBeenCalledWith('Andrea');
   expect(mockPerson).toHaveBeenCalledTimes(1);
 })
@@ -143,10 +141,12 @@ test('We can check if we called a method on the class instance', () => {
 
 // Verifica mitjançant tests l'exercici Classes & Arrow Functions Nivell 3 - Exercici 1.
 
+
 describe('exercise Classes 3.1', () => {
   test('Verify object message equal to Message is: Everything you want', () => {
-    const object1 = new createObj('Everything you want')
-    expect( object1.info() ).toMatch('Message is: Everything you want')
+
+    const object = new createObj('Everything you want')
+    expect( object.info() ).toMatch('Message is: Everything you want')
   })
   })
 
