@@ -10,8 +10,6 @@ async function writeText(text) {
     console.log(err)
   }
 }
-//writeText('If you read this, then function writeText and readText works')
-
 
 
 // Nivell1 Exercici2
@@ -25,8 +23,6 @@ async function readText() {
     console.log(err)
   }
 }
-// readText()
-
 
 
 // Nivell1 Exercici3
@@ -44,13 +40,6 @@ async function do_gzip(input, output) {
   const destination = createWriteStream(output)
   await pipe(source, gzip, destination)
 }
-
-/* do_gzip('./text.txt', './text.txt.gz')
-.catch((err) => {
-  console.error('An error occurred:', err);
-  process.exitCode = 1
-}) */
-
 
 
 // Nivell2 Exercici1
@@ -79,9 +68,6 @@ async function recursiveFunction( msec ) {
     console.log( err.message )
   }
 }
-//recursiveFunction( 1000 )
-
-
 
 
 // Nivell2 Exercici2
@@ -165,9 +151,6 @@ async function encryptFiles() {
     console.log(err);
   }
 }
-//encryptFiles()
-
-
 
 
 // Crea una funció que guardi els fitxers del punt anterior, 
@@ -181,9 +164,6 @@ async function deleteFiles( text1 ) {
     console.log(err);
   }
 }
-//deleteFiles( './text.txt' )
-
-
 
 
 // Crea una altra funció que desencripti i descodifiqui els fitxers de l'apartat anterior 
@@ -213,4 +193,23 @@ async function decryptFiles() {
     console.log(err);
   }
 }
+
+// de la funciones para desbloquear me he dejado lo de la lista del directory user en su sitio
+
+//writeText('If you read this, then function writeText and readText works')
+
+// readText()
+
+/* do_gzip('./text.txt', './text.txt.gz')
+.catch((err) => {
+  console.error('An error occurred:', err);
+  process.exitCode = 1
+}) */
+
+//recursiveFunction( 1000 )
+
+//encryptFiles()
+
+//deleteFiles( './text.txt' )
+
 //decryptFiles()
