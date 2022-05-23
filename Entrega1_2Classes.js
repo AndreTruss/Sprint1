@@ -44,19 +44,14 @@ class Abstract {
         throw new Error("Abstract Method has no implementation")
     }
 }
+Abstract.prototype.info = function() { return `Message is: ${this.message}` }
 
 function createObj(message) { 
     this.message = message 
-    Abstract.prototype.info = function() { return `Message is: ${this.message}` }
 }
 
 createObj.prototype = Object.create(Abstract.prototype)
 
-const object1 = new createObj('Everything you want')
-const object2 = new createObj('Sum of 1+1 is ...')
+createObj.prototype.message = 'viva'
 
-console.log( object1.message )
-console.log( object1.info() ) 
-console.log( object2.message )
-console.log( object1 instanceof createObj);
-console.log( object1 instanceof Abstract);
+console.log( createObj.prototype.info() )
