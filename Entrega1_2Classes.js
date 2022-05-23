@@ -1,8 +1,10 @@
 // Nivell1 Exercici1
 // Mostra per la consola el resultat d'una arrow function autoinvocable que sumi dos nombres.
 
+// 1 version
 console.log( ( ( number1, number2 ) => {return `Sum is ${number1 + number2 }`} ) ( 5, 6 ) )
-
+// 2 version
+( ( number1, number2 ) => console.log( `Sum is ${number1 + number2}` ) ) ( 5, 6 )
 
 // Nivell2 Exercici1
 // Crea una arrow function que, rebent un paràmetre, 
