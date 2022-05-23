@@ -1,7 +1,7 @@
 // Nivell1 Exercici1
 // Mostra per la consola el resultat d'una arrow function autoinvocable que sumi dos nombres.
 
-const makeSum = ( ( number1, number2 ) => console.log( `Sum is ${number1 + number2}`) ) ( 5, 6 )
+( ( number1, number2 ) => console.log (`Sum is ${number1 + number2 }`) ) ( 5, 6 )
 
 
 // Nivell2 Exercici1
