@@ -2,11 +2,13 @@
 //Crea una funció que retorni una Promise que invoqui la funció resolve() o reject() que rep. 
 //Invoca-la passant-li les dues funcions de manera que imprimeixin un missatge diferent 
 //depenent de si la Promise es resol o no.
+let hasChanges = false
 
 let myPromise = () => { 
 	return new Promise( (resolve, reject) => {
-		resolve('¡Right!')
-		reject( new Error( '¡Wrong!' ) )
+		!hasChanges
+			? resolve('¡Right! Have changes')
+			: reject( new Error( '¡Wrong! Not have changes' ) )
 	}) 
 }
 const successCallback = value => console.log( `¡Yes! ${value}` ) 
@@ -22,11 +24,11 @@ myPromise()
 //i li passi a la funció un missatge o un altre 
 //(que s'imprimirà per consola) en funció del paràmetre rebut.
 
-const giveMessage = ( message ) => console.log( message )
+const giveMessage = ( valor ) => console.log( `Hola ${valor}!` )
 
 const myFunction = (parameter, callback) => callback(parameter) 
 
-myFunction('Hola Andrea', giveMessage)
+myFunction('Andrea', giveMessage)
 
     
 

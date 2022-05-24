@@ -40,7 +40,7 @@ const getSalary = employee =>
 		let wage = salaries.find( element => element.id == employee.id)
 	 
 		wage  
-			? resolve(`Employee: ${employee.name}, have salary: ${wage.salary}`)
+			? resolve( wage )
 			: reject(new Error('¡Fail ecercici 1.1!') )
 	}
 ) 
@@ -48,13 +48,13 @@ const getSalary = employee =>
 async function functEmployees(empId){
     try {
         const employee = await getEmployee(empId)
-        const message = await getSalary(employee)
-        console.log(message)
+        const salaryEmp = await getSalary(employee)
+        console.log(`Employee: ${employee.name}, have salary: ${salaryEmp.salary}`)
     } catch (error) {
         console.log(`¡No! ${error.message}`) 
     }
 }
-//functEmployees(2)
+functEmployees(2)
 
 
 // Nivell1 Exercici2
@@ -89,20 +89,12 @@ async function resolveIn2SecFunctionAsync(value){
 const dobleNumber = number => {
     return new Promise( (resolve, reject) => { 
     !isNaN( number )  
-        ? resolve( number * 2 )
+        ? setTimeout( () => resolve( console.log(`Doble of number ${number} is ${number * 2}`) ), 2000 )
         : reject( new Error('¡Fail ecercici 2.1!') )
     })
 }
 
-async function dobleIn2secFunctionAsync( numero ){
-    try {
-        const message =  await dobleNumber( numero )
-        setTimeout( () => console.log(`Doble of number ${numero} is ${message}`), 2000 )
-    } catch (error) {
-        console.log(`¡No! ${error.message}`) 
-    }
-}
-//dobleIn2secFunctionAsync( 6 )
+dobleNumber( 6 )
 
 async function sumDobleFunctionAsync( num1, num2, num3 ){
     try {

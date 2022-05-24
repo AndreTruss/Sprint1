@@ -2,10 +2,10 @@
 // Mostra per la consola el resultat d'una arrow function autoinvocable que sumi dos nombres.
 
 // 1 version
-console.log( ( ( number1, number2 ) => {return `Sum is ${number1 + number2 }`} ) ( 5, 6 ) )
+console.log( ( ( number1, number2 ) => `Sum is ${number1 + number2 }` ) ( 5, 6 ) )
 // 2 version
-( ( number1, number2 ) => console.log( `Sum is ${number1 + number2}` ) ) ( 5, 6 )
-
+const makeSum = ( ( number1, number2 ) => `Sum is ${number1 + number2}` ) ( 5, 6 )
+console.log( makeSum )
 // Nivell2 Exercici1
 // Crea una arrow function que, rebent un paràmetre, 
 //retorni un objecte amb un atribut que tingui com a valor el paràmetre rebut.
