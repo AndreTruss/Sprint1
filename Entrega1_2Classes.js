@@ -49,7 +49,7 @@ class Abstract {
 Abstract.prototype.info = function() { return `Message is: ${this.message}` }
 
 function createObj(message) { 
-    this.message = message 
+    Abstract.prototype.message = message 
 }
 
 createObj.prototype = Object.create(Abstract.prototype)
