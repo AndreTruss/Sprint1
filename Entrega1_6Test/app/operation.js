@@ -67,17 +67,10 @@ const dobleNumber = number => {
     return new Promise( (resolve, reject) => { 
     !isNaN( number )  
         ? setTimeout( () => resolve( `Doble of number ${number} is ${number * 2}` ), 2000 )
-        : reject( new Error('¡Fail ecercici 2.1!') )
+        : reject( ('¡Fail ecercici 2.1!') )
     })
 }
-async function dobleNumberAsync( num ){
-    try {
-        const result = await dobleNumber( num )
-        console.log(result)
-    } catch (error) {
-        return (`¡No! ${error.message}`) 
-    }
-}
+
 
 // exercise Promise Nivell2 Exercici3
 
@@ -119,7 +112,7 @@ module.exports = {
     multiply,
     divide,
     functEmployees,
-    dobleNumberAsync,
+    dobleNumber,
     getEmployee,
     getSalary,
     createObj

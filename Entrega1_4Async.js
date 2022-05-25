@@ -90,18 +90,11 @@ const dobleNumber = number => {
     return new Promise( (resolve, reject) => { 
     !isNaN( number )  
         ? setTimeout( () => resolve( console.log(`Doble of number ${number} is ${number * 2}`) ), 2000 )
-        : reject( new Error('¡Fail ecercici 2.1!') )
+        : reject( console.log('¡Fail ecercici 2.1!') )
     })
 }
-async function dobleNumberAsync( num ){
-    try {
-        let result = await dobleNumber( num )
-        console.log(result)
-    } catch (error) {
-        console.log(`¡No! ${error.message}`) 
-    }
-}
-dobleNumberAsync( 6 )
+
+dobleNumber( 6 )
 
 async function sumDobleFunctionAsync( num1, num2, num3 ){
     try {
