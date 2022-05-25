@@ -2,11 +2,11 @@
 //Crea una funció que retorni una Promise que invoqui la funció resolve() o reject() que rep. 
 //Invoca-la passant-li les dues funcions de manera que imprimeixin un missatge diferent 
 //depenent de si la Promise es resol o no.
-let hasChanges = false
+let hasChanges = true
 
 let myPromise = () => { 
 	return new Promise( (resolve, reject) => {
-		!hasChanges
+		hasChanges
 			? resolve('¡Right! Have changes')
 			: reject( new Error( '¡Wrong! Not have changes' ) )
 	}) 
