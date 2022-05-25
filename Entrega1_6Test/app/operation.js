@@ -45,7 +45,7 @@ const getSalary = employee =>
 		let wage = salaries.find( element => element.id == employee.id)
 	 
 		wage  
-			? resolve(`Employee: ${employee.name}, have salary: ${wage.salary}`)
+			? resolve(wage)
 			: reject(new Error('¡Fail ecercici 1.1!') )
 	}
 ) 
@@ -53,8 +53,8 @@ const getSalary = employee =>
 async function functEmployees(empId){
     try {
         const employee = await getEmployee(empId)
-        const message = await getSalary(employee)
-        return message
+        const salaryEmp = await getSalary(employee)
+        return `Employee: ${employee.name}, have salary: ${salaryEmp.salary}`
     } catch (error) {
         return (`¡No! ${error.message}`) 
     }
@@ -66,18 +66,9 @@ async function functEmployees(empId){
 const dobleNumber = number => {
     return new Promise( (resolve, reject) => { 
     !isNaN( number )  
-        ? resolve( number * 2 )
+        ? setTimeout( () => resolve( `Doble of number ${number} is ${number * 2}` ), 2000 )
         : reject( new Error('¡Fail ecercici 2.1!') )
     })
-}
-
-async function dobleIn2secFunctionAsync( numero ){
-    try {
-        const message =  await dobleNumber( numero )
-        setTimeout( () => (`Doble of number ${numero} is ${message}`), 2000 )
-    } catch (error) {
-        return (`¡No! ${error.message}`) 
-    }
 }
 
 // exercise Promise Nivell2 Exercici3
@@ -86,7 +77,7 @@ getEmployee(1)
 	.then( valueEmp => 
 		getSalary(valueEmp)
 		.then( valueSal => 
-			{ return (`Employee: ${valueEmp.name} have salary: ${valueSal.salary}`) }
+			{ return (`Employee: ${valueEmp.name}, have salary: ${valueSal.salary}`) }
 		)
 	)
 
@@ -106,10 +97,10 @@ class Abstract {
         throw new Error("Abstract Method has no implementation")
     }
 }
+Abstract.prototype.info = function() { return `Message is: ${this.message}` }
 
 function createObj(message) { 
-    this.message = message 
-    Abstract.prototype.info = function() { return `Message is: ${this.message}` }
+    Abstract.prototype.message = message 
 }
 
 createObj.prototype = Object.create(Abstract.prototype)
@@ -120,7 +111,7 @@ module.exports = {
     multiply,
     divide,
     functEmployees,
-    dobleIn2secFunctionAsync,
+    dobleNumber,
     getEmployee,
     getSalary,
     createObj
