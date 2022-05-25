@@ -8,7 +8,7 @@ describe('exercise Async 1.1', () => {
       try {
         await expect( functEmployees(1) ).resolves.toMatch(`Employee: Linux Torvalds, have salary: 4000`)
       } catch (error) {
-        await expect( functEmployees(1) ).rejects.toThrow(error)
+        await expect( functEmployees(5) ).rejects.toThrow(error)
       }
     })
     })
