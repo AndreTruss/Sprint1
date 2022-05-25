@@ -54,7 +54,7 @@ async function functEmployees(empId){
         console.log(`¡No! ${error.message}`) 
     }
 }
-functEmployees(2)
+//functEmployees(2)
 
 
 // Nivell1 Exercici2
@@ -93,8 +93,15 @@ const dobleNumber = number => {
         : reject( new Error('¡Fail ecercici 2.1!') )
     })
 }
-
-dobleNumber( 6 )
+async function dobleNumberAsync( num ){
+    try {
+        let result = await dobleNumber( num )
+        console.log(result)
+    } catch (error) {
+        console.log(`¡No! ${error.message}`) 
+    }
+}
+dobleNumberAsync( 6 )
 
 async function sumDobleFunctionAsync( num1, num2, num3 ){
     try {
@@ -115,10 +122,10 @@ async function sumDobleFunctionAsync( num1, num2, num3 ){
 // Nivell3 Exercici1
 // Força i captura tants errors com puguis dels nivells 1 i 2.
 
-/* functEmployees( 5 )
-resolveIn2SecFunctionAsync( false )
-dobleIn2secFunctionAsync( 'c' )
-dobleIn2secFunctionAsync( NaN )
-sumDobleFunctionAsync( 2, 3 )
-sumDobleFunctionAsync( undefined, 0, 0 ) */
+//functEmployees( 5 )
+//resolveIn2SecFunctionAsync( false )
+//dobleNumberAsync( 'c' )
+//dobleNumberAsync( NaN )
+//sumDobleFunctionAsync( 2, 3 )
+//sumDobleFunctionAsync( undefined, 0, 0 )
   
