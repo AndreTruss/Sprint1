@@ -57,3 +57,5 @@ createObj.prototype = Object.create(Abstract.prototype)
 createObj.prototype.message = 'viva'
 
 console.log( createObj.prototype.info() )
+console.log( createObj.prototype instanceof Abstract )
+console.log( createObj instanceof Abstract )
