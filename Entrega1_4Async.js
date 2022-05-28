@@ -89,12 +89,22 @@ async function resolveIn2SecFunctionAsync(value){
 const dobleNumber = number => {
     return new Promise( (resolve, reject) => { 
     !isNaN( number )  
-        ? setTimeout( () => resolve( console.log(`Doble of number ${number} is ${number * 2}`) ), 2000 )
-        : reject( console.log('¡Fail ecercici 2.1!') )
+        ? resolve( number * 2 )
+        : reject( new Error('¡Fail ecercici 2.1!') )
     })
 }
-
-dobleNumber( 6 )
+async function dobleNumberIn2sec( num ){
+    try {
+        let result = await dobleNumber( num )
+        setTimeout( () => console.log(`Doble of number ${num} is ${result}`), 2000)
+        /* let result = num * 2
+        setTimeout( () => console.log(`Doble of number ${num} is ${result}`), 2000)
+        return result */
+    } catch (error) {
+        console.log(`¡No! ${error.message}`) 
+    }
+}
+dobleNumberIn2sec( 6 )
 
 async function sumDobleFunctionAsync( num1, num2, num3 ){
     try {
@@ -109,7 +119,7 @@ async function sumDobleFunctionAsync( num1, num2, num3 ){
         console.log(`¡No! ${error.message}`) 
     }
 }
-//sumDobleFunctionAsync( 2, 3, 6 )
+sumDobleFunctionAsync( 2, 3, 6 )
 
 
 // Nivell3 Exercici1
