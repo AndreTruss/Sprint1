@@ -19,4 +19,22 @@ const maximizedArray = ((arr1, arr2 ) => {
         
 })
 
-maximizedArray( array1 , array2)
+//maximizedArray( array1 , array2)
+
+
+//NEW EXERCISE
+
+function allUnique (text) {
+    
+    //text.split('')
+    for(let i = 0; i < (text.length); i++){
+        for(let j = i+1; j < (text.length); j++){
+            if (text[i] == text[j]) {
+                return false    
+            } 
+        }
+    }
+    return true
+    }
+
+ console.log(allUnique('cat &Cog'))
