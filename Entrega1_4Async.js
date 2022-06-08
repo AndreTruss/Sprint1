@@ -86,20 +86,20 @@ async function resolveIn2SecFunctionAsync(value){
 // Crea una altra funció que rebi tres números i calculi la suma dels seus dobles 
 // usant la funció anterior.
 
-const dobleNumber = number => {
+/* const dobleNumber = number => {
     return new Promise( (resolve, reject) => { 
     !isNaN( number )  
         ? resolve( number * 2 )
         : reject( new Error('¡Fail ecercici 2.1!') )
     })
-}
+} */
 async function dobleNumberIn2sec( num ){
     try {
-        let result = await dobleNumber( num )
+        /* let result = await dobleNumber( num )
+        setTimeout( () => console.log(`Doble of number ${num} is ${result}`), 2000) */
+        let result = num * 2
         setTimeout( () => console.log(`Doble of number ${num} is ${result}`), 2000)
-        /* let result = num * 2
-        setTimeout( () => console.log(`Doble of number ${num} is ${result}`), 2000)
-        return result */
+        return result
     } catch (error) {
         console.log(`¡No! ${error.message}`) 
     }
@@ -108,9 +108,9 @@ dobleNumberIn2sec( 6 )
 
 async function sumDobleFunctionAsync( num1, num2, num3 ){
     try {
-        let result1 = await dobleNumber( num1 )
-        let result2 = await dobleNumber( num2 )
-        let result3 = await dobleNumber( num3 )
+        let result1 = await dobleNumberIn2sec( num1 )
+        let result2 = await dobleNumberIn2sec( num2 )
+        let result3 = await dobleNumberIn2sec( num3 )
         
         const sumNumbers = result1 + result2 + result3
 
