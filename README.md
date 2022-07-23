@@ -7,7 +7,7 @@
 
 At first all functions are disabled, turn it on in this order:
 
-1- writeText function write a text in a file.
+1- writeText function write a text in a file
 
 2- readText function read the previous text and show on console.
 
